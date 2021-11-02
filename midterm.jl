@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.16.1
+# v0.17.0
 
 using Markdown
 using InteractiveUtils
@@ -25,12 +25,12 @@ md"""
 
 # ╔═╡ fd7ecec9-9531-43cb-a7bc-5170df1b156e
 md"""
-## Q1: Graph Theory
+## Q1: Graph Theory (20 points)
 
-1. Write one or two paragraphs describing what a graph/network is. Assume that your audience is a smart person, but one who knows nothing about programming or data analysis. In your discussion provide an example of a graph.
+1. (10 points) Write one or two paragraphs describing what a graph/network is. Assume that your audience is a smart person, but one who knows nothing about programming or data analysis. In your discussion provide an example of a graph.
 2. (E&K question 2.3) When we think about a single aggregate measure to summarize the distances between the nodes in a given graph, there are two natural quantities that come to mind. One is the diameter, which we define to be the maximum distance between any pair of nodes in the graph. Another is the average distance, which — as the term suggests — is the average distance over all pairs of nodes in the graph. In many graphs, these two quantities are close to each other in value. But there are graphs where they can be very different
-    1. Describe an example of a graph where the diameter is more than three times as large as the average distance.
-    2. Describe how you could extend your construction to produce graphs in which the diameter exceeds the average distance by as large a factor as you’d like. (That is, for every number c, can you produce a graph in which the diameter is more than c times as large as the average distance?)
+    1. (5 points) Describe an example of a graph where the diameter is more than three times as large as the average distance.
+    2. (5 points) Describe how you could extend your construction to produce graphs in which the diameter exceeds the average distance by as large a factor as you’d like. (That is, for every number c, can you produce a graph in which the diameter is more than c times as large as the average distance?)
 """
 
 # ╔═╡ 62b90a48-011e-4d69-a4b7-5bae71ad10fb
@@ -40,12 +40,12 @@ YOUR RESPONSES HERE
 
 # ╔═╡ 9a444248-c8c9-41a4-adf3-afb589e42a31
 md"""
-## Q2: Game Theory
+## Q2: Game Theory (20 points)
 
-1. True or false, all pure strategies are also mixed strategies. Defend your answer.
-2. True or false, all mixed strategies are also pure strategies. Defend your answer.
-3. Is a Nash Equilibrium always socially optimal (Pareto Optimal)? If so, explain why. If not, provide an example where they differed. What does your result say about the potential for governments to align behaviors?
-4. Explain the difference between a Nash Equilibrium strategy and a strictly dominating strategy.
+1. (5 points) True or false, all pure strategies are also mixed strategies. Defend your answer.
+2. (5 points) True or false, all mixed strategies are also pure strategies. Defend your answer.
+3. (5 points) Is a Nash Equilibrium always socially optimal (Pareto Optimal)? If so, explain why. If not, provide an example where they differed. What does your result say about the potential for governments to align behaviors?
+4. (5 points) Explain the difference between a Nash Equilibrium strategy and a strictly dominating strategy.
 
 """
 
@@ -56,10 +56,10 @@ YOUR RESPONSES HERE
 
 # ╔═╡ 0b13647e-2b95-4ad4-9a39-fc929debc195
 md"""
-## Q3: ABM Theory
+## Q3: ABM Theory (20 points)
 
-1. What are they key parts of an agent based model?
-2. Describe a research question for which an ABM might be an appropriate tool. You do not need to go into detail. 2-4 sentences should suffice.
+1. (10 points) What are they key parts of an agent based model?
+2. (10 points) Describe a research question for which an ABM might be an appropriate tool. You do not need to go into detail. 2-4 sentences should suffice.
 """
 
 # ╔═╡ e42ae98f-ba5b-4a2b-b96a-651f830331b5
@@ -69,7 +69,7 @@ YOUR RESPONSES HERE
 
 # ╔═╡ 11eba231-9289-407d-b66f-75fbdb5cc4f9
 md"""
-## Q4: Julia Question
+## Q4: Julia Question (40 points)
 
 In this question we will study the PageRank algorithm, made famous by Larry Page and Sergey Brin. It is the foundational algorithm upon which google's search engine was inititally implemented (and is still a prominent component).
 
@@ -77,11 +77,11 @@ The main intuition behind the algorithm is as follows.
 
 > NOTE you do not need to understand all of this discussion in order to complete the exercise. I encourage you to read through it, work on the questions, and then come back and study the explanation again once you've seen how it works.
 
-Consider a directed graph where nodes are web pages and an edge goes from A -> B if there is a link from website A to website B. 
+Consider a directed graph where nodes are web pages and an edge goes from A -> B if there is a link from website A to website B.
 
-Furthermore, suppose that each webpage has a total of 1 "power" (or "attention", or "weight" -- use as synonyms) that it can allocate to other web pages. 
+Furthermore, suppose that each webpage has a total of 1 "power" (or "attention", or "weight" -- use as synonyms) that it can allocate to other web pages.
 
-The power for webpage A will be split evenly across all pages that are linked to from A. 
+The power for webpage A will be split evenly across all pages that are linked to from A.
 
 For example, if site A has a link pointing to B, two links to C, and one to D then each B, C, and D would be given 1/3 of A's attention (even though there are two links to C -- it gets same attention as B and D).
 
@@ -94,7 +94,7 @@ Now suppose you have the directed graph (or transition probabilities from the pr
     - For $T$ steps randomly traverse an edge (or, equivalently, follow transition probabilities for node of current step)
     - Record the node you end up on after $T$ steps
 
-At the end of this procedure you will have an $N$ element list of node ids. The next step is to convert this array of node ids to an array of length n-nodes containing the frequency of each node appearing in your list of termianl nodes. This will be an approximation of what is called a *stationary* distribution. 
+At the end of this procedure you will have an $N$ element list of node ids. The next step is to convert this array of node ids to an array of length n-nodes containing the frequency of each node appearing in your list of termianl nodes. This will be an approximation of what is called a *stationary* distribution.
 
 Google would sort this array of node frequencies and return them to the user as the first search results.
 
@@ -105,7 +105,7 @@ In this question we will apply the PageRank algorithm to outcomes of football (s
 
 ---
 
-### Part 1: Importing the data
+### Part 1: Importing the data (5 points)
 
 
 The file at https://github.com/UCF-CAP-6318/midterm-exam/raw/main/epl_results.csv  contains data on the results of all EPL games played since inception, up until partway through the 2021-2022 season. It was obtained from a [kaggle dataset](https://www.kaggle.com/irkaal/english-premier-league-results)
@@ -122,11 +122,11 @@ df = missing ## REPLACE THIS WITH YOUR CODE
 
 # ╔═╡ 401c24c4-8b44-4a84-961a-3fb6d18382af
 md"""
-### Part 2
+### Part 2 (5 points)
 
 We now need to construct a list of all the teams that have played in the EPL
 
-We'll also assign them a unique integer. 
+We'll also assign them a unique integer.
 
 Your task is to fill in the two functions below that do these operations
 
@@ -147,9 +147,9 @@ get_team_ids(teams) = missing
 
 # ╔═╡ 0ddbaca5-1d3a-4239-b0e7-7790c0168ee0
 md"""
-### Part 3: Build Weighted Graph
+### Part 3: Build Weighted Graph (10 points)
 
-The rules of the English Premier League are that the winning team of a match earns 3 points, the losing team earns 0, and both teams earn 1 point in the event of a draw. 
+The rules of the English Premier League are that the winning team of a match earns 3 points, the losing team earns 0, and both teams earn 1 point in the event of a draw.
 
 The columns `HomeTeam` and `AwayTeam` provide the name of the two sides in a match.
 
@@ -179,17 +179,17 @@ function create_epl_graph(df)
 	teams = get_teams(df)
 	team_ids = get_team_ids(teams)
 	g = SimpleWeightedDiGraph(length(teams))
-	
-	
+
+
 	# NOTE: right now `w` is a matrix of zeros of size (length(teams), length(teams))
 	w = g.weights
-	
-	
+
+
 	for r in eachrow(df)
 		# `r` is one row of the DataFrame
 		# you can access columns using `r.COLUMN_NAME`
-		
-		# TODO 1: extract `h_id` and `a_id` from `team_ids` given 
+
+		# TODO 1: extract `h_id` and `a_id` from `team_ids` given
 		# 		  the name of the HomeTeam and AwayTeam for the
 		#		  match represented in this row
 		h_id = 1  # CHANGE ME
@@ -206,7 +206,7 @@ function create_epl_graph(df)
 			# TODO 4: handle the case where each team gets one official point
 			#		  from this match. NOTE: you will have to add weight to two
 			#		  edges
-			
+
 		end
 	end
 	return EPLResults(df, g, teams, team_ids)
@@ -214,13 +214,13 @@ end
 
 # ╔═╡ 81e21316-d767-4626-a11a-2274be2d5c60
 md"""
-### Part 4: Find Stationary Distribution
+### Part 4: Find Stationary Distribution (10 points)
 
 Now that we have a routine that can properly construct our weighted DiGraph, we are ready to implement the core of the PageRank algorithm.
 
 The first step is to determine the "transition probabilities" between nodes in our graph. We will do this using a stochastic matrix that we'll call P. This matrix can be computed by dividing each row of the matrix by the sum of that row. We've done this for you in the `trans_mat` function below.
 
-We can simulate our process of randomly crossing edges of the graph according to those transition probabilities using some clever linear algebra. 
+We can simulate our process of randomly crossing edges of the graph according to those transition probabilities using some clever linear algebra.
 
 Let `p` represent our best guess for the stationary distribution associated with our transition matrix. If this is truly a stationary distribution, then it will satisfy the identity `p = P' p` where `P'` represents the transpose of the transition stochastic matrix returned by `trans_mat`.
 
@@ -237,19 +237,19 @@ trans_mat(g::SimpleWeightedDiGraph) = Array(g.weights) ./ sum(g.weights, dims=2)
 function compute_ranks(res::EPLResults)
 	P = trans_mat(res.g)
 	N = size(P, 1)
-	
+
 	# start with any valid distribution for `p`. we'll pick
 	# a uniform distribution over the `N` nodes.
 	p = fill(1 / N, N)
 	done = false
 	i = 0
-	
+
 	while !done && i < 100000
 		i += 1
 		new_p = p  # TODO: Change this line
-		
+
 		done = maximum(abs.(p .- new_p)) < 1e-10
-		
+
 		# copy values into `p` to prepare for next iteration
 		copy!(p, new_p)
 	end
@@ -258,7 +258,7 @@ end
 
 # ╔═╡ 9162cb1a-43a2-453f-9846-c2283a2ec934
 md"""
-### Part 5: Interpretation
+### Part 5: Interpretation (10 points)
 
 Congrats! You've implemented a trillion dollar algorithm 👏
 
@@ -269,7 +269,7 @@ Below I have used your routines to analyze two subsets of the data:
 1. All the matches since the inception of the league
 2. All matches from only the 2020-2021 season
 
-Based on what you see [https://en.wikipedia.org/wiki/Premier_League](https://en.wikipedia.org/wiki/Premier_League) and [https://globalsportsarchive.com/competition/soccer/premier-league-2020-2021/regular-season/47188/](https://globalsportsarchive.com/competition/soccer/premier-league-2020-2021/regular-season/47188/), how did your algorithm do against the official rankings? 
+Based on what you see [https://en.wikipedia.org/wiki/Premier_League](https://en.wikipedia.org/wiki/Premier_League) and [https://globalsportsarchive.com/competition/soccer/premier-league-2020-2021/regular-season/47188/](https://globalsportsarchive.com/competition/soccer/premier-league-2020-2021/regular-season/47188/), how did your algorithm do against the official rankings?
 
 Discuss.
 """
@@ -282,22 +282,22 @@ YOUR RESPONSE HERE
 # ╔═╡ a606a856-c0d1-494d-a247-23d88fddfae9
 begin
 	hint(text) = Markdown.MD(Markdown.Admonition("hint", "Hint", [text]))
-	
+
 	almost(text) = Markdown.MD(Markdown.Admonition("warning", "Almost there!", [text]))
-	
+
 	still_missing(text=md"Replace `missing` with your answer.") = Markdown.MD(Markdown.Admonition("warning", "Here we go!", [text]))
-	
+
 	keep_working(text=md"The answer is not quite right.") = Markdown.MD(Markdown.Admonition("danger", "Keep working on it!", [text]))
-	
+
 	yays = [md"Fantastic!", md"Splendid!", md"Great!", md"Yay ❤", md"Great! 🎉", md"Well done!", md"Keep it up!", md"Good job!", md"Awesome!", md"You got the right answer!", md"Let's move on to the next section."]
-	
+
 	correct(text=rand(yays)) = Markdown.MD(Markdown.Admonition("correct", "Got it!", [text]))
-	
+
 	not_defined(variable_name) = Markdown.MD(Markdown.Admonition("danger", "Oopsie!", [md"Make sure that you define a variable called **$(Markdown.Code(string(variable_name)))**"]))
-	
+
 	check_number(have::Int, want::Int) = have == want
 	check_number(have::T, want::T) where T <: AbstractFloat = abs(want - have) < 1e-10
-	
+
 	function default_checks(vname, have, want)
 		if ismissing(have)
 			still_missing(Markdown.MD(Markdown.Paragraph([
@@ -306,13 +306,13 @@ begin
 			])))
 		elseif typeof(have) != typeof(want)
 			keep_working(Markdown.MD(Markdown.Paragraph([
-				Markdown.Code(vname), 
+				Markdown.Code(vname),
 				"should be a $(typeof(want)), found $(typeof(have))"
 			])))
 		else
 			if !check_number(have, want)
 				keep_working(Markdown.MD(Markdown.Paragraph([
-				Markdown.Code(vname), 
+				Markdown.Code(vname),
 				"is not quite right"
 			])))
 			else
@@ -350,10 +350,10 @@ begin
 		if !issorted(x)
 			return keep_working(md"`get_teams(df)` should return a **sort**ed list")
 		end
-		correct()		
+		correct()
 	end
 	check_get_teams(get_teams(df))
-	
+
 end
 
 # ╔═╡ f062d296-d9bb-4e04-9a4f-41e0e055de5b
@@ -367,10 +367,10 @@ begin
 		if length(values(x)) != length(unique(values(x)))
 			return keep_working("each team must have a unique id")
 		end
-		correct()		
+		correct()
 	end
 	check_get_team_ids(get_team_ids(get_teams(df)))
-	
+
 end
 
 # ╔═╡ 477fe2ac-8231-41ed-afa3-f2eb7a827a5a
@@ -389,12 +389,12 @@ begin
 		if sum(have.g.weights[:, city]) != 86
 			keep_working(md"Not right... keep trying")
 		end
-		
+
 		if sum(have.g.weights[:, manu]) != 74
 			keep_working(md"Not right... keep trying")
 		end
 		correct()
-		
+
 	end
 	check_create_graph(df)
 end
@@ -418,7 +418,7 @@ begin
 			return keep_working()
 		end
 		correct()
-		
+
 	end
 	test_compute_ranks(df)
 end
@@ -495,9 +495,9 @@ version = "0.7.0"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "dce3e3fea680869eaa0b774b2e8343e9ff442313"
+git-tree-sha1 = "31d0151f5716b655421d9d75b7fa74cc4e744df2"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "3.40.0"
+version = "3.39.0"
 
 [[Crayons]]
 git-tree-sha1 = "3f71217b538d7aaee0b69ab47d9b7724ca8afa0d"
